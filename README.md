@@ -10,7 +10,7 @@ To repozytorium przechowuje materiały zgromadzone przy pracy na projektem "Zhac
 - 👷‍♂️ Jakub Kadłubowski
 - 👷‍♂️ Filip Jaworski
 - 👷‍♂️ Piotr Okrasa
-- 👷‍♀️ Małgorzata Plichta [@MalgorzataPlichta] (https://github.com/MalgorzataPlichta)
+- 👷‍♀️ Małgorzata Plichta [@MalgorzataPlichta](https://github.com/MalgorzataPlichta)
 
 
 ## 📃 Dokumentacja
