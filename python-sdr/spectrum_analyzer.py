@@ -4,7 +4,7 @@ from rtlsdr import *
 sdr = RtlSdr()
 
 # configure device
-sdr.sample_rate = 2.4e6
+sdr.sample_rate = 1e6
 sdr.center_freq = 433.92e6
 sdr.gain = 4
 
