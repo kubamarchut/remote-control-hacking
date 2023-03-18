@@ -1,8 +1,5 @@
 from scipy import signal
-
 from numpy import max, abs, int16
-
-
 from rtlsdr import RtlSdr
 from scipy.io import wavfile
 
@@ -14,6 +11,7 @@ SAMPLE_RATE = 1e6
 
 
 def record():
+    print("start")
     fc = FREQ - F_OFFSET
     sdr = RtlSdr()
     sdr.center_freq = fc
@@ -23,9 +21,8 @@ def record():
     decimated = signal.decimate(samples, 20) #Dla wartości 20 jest jeszcze w miarę ładnie widoczny sygnał
     scaled = int16(decimated / max(abs(decimated)) * 32767)
     wavfile.write('../../remote-control-hacking/recorded_signals_urh/1_off/out2.wav', int(sdr.sample_rate), scaled.astype("int16"))
+    print("end")
     return scaled
 
 
-if __name__ == "__main__":
-    record()
 
