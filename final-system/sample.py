@@ -62,6 +62,7 @@ def main(signal):
                 index = int(start + (i*length_of_pulse_synced))
                 sampled_data += str(int(signal[index]))
                 plt.axvline(x = index, color="m", label="sync found")
+            
             sampled_data_list.append(sampled_data)
             break
 

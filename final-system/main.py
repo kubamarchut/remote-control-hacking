@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
             led.color = (1, 0, 1)
             print("decoding data")
-            decoded_code = decodeMain(sampled_data)
+            decoded_code = decodeMain(sampled_data[0])
 
             led.blink(1, 1, 1, 1, (0, 1, 0), (0, 0, 0), 5)
             print("output:", decoded_code)
