@@ -11,7 +11,7 @@ cutoff = 0.05
 T = 5.0
 
 def rectifier(my_data):
-    rect_data = (np.maximum(0, my_data))
+    rect_data = (np.abs(my_data))
     return rect_data
 
 def butter_lowpass(cutoff, fs, order=5):
@@ -30,7 +30,7 @@ def lowpass_filter():
 
 def comparator(y, data):
     env = np.abs(data)
-    treshold = np.max(env) / 9
+    treshold = np.max(env) * 0.2899
     square_sig = (y > treshold) * 1
     plt.plot(y, color='r', label='after LPF')
     plt.plot(square_sig * np.max(env), color='g', label='square')

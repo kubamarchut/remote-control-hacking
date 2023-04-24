@@ -50,18 +50,20 @@ def main(signal):
             print("sync found")
             plt.axvline(x = position, color="r", label="sync found")
             length_of_pulse_synced = find_sync_symbol(signal, position, length_of_pulse)[1]
-            length_of_pulse = (length_of_pulse_synced*31 + length_of_pulse)//32
-            start = position+(32*length_of_pulse)
+            print(length_of_pulse, length_of_pulse_synced)
+            #length_of_pulse = (length_of_pulse_synced*31 + length_of_pulse)//32
+            length_of_pulse = length_of_pulse_synced
+            start = position+(32*length_of_pulse_synced)
             plt.axvline(x = start, color="g", label="sync found")
             
             start += 0.5*length_of_pulse
             sampled_data = ""
             for i in range(96):
-                index = int(start + (i*length_of_pulse))
+                index = int(start + (i*length_of_pulse_synced))
                 sampled_data += str(int(signal[index]))
                 plt.axvline(x = index, color="m", label="sync found")
-            
             sampled_data_list.append(sampled_data)
+            break
 
         ones.append(position)
         n += int(length_of_pulse)
