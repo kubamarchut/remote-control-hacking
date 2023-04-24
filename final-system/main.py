@@ -1,5 +1,5 @@
 from sample import main as sampleMain
-from decode import main as decodeMain
+from decode import decode as decodeMain
 from demodulate import main as demodulateMain
 from record import record
 from gpiozero import Button
