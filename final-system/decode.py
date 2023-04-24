@@ -14,7 +14,8 @@ def decode(signal):
 
     for sign in signal_divided:
         if not sign in decoding:
-            print("error", sign)
+            if verbose: print("error", sign)
+            else: return False
         else:
             received_code += decoding[sign]
 
@@ -24,7 +25,7 @@ def decode(signal):
 
     if verbose: print(dec_code)
 
-    return dec_code
+    return received_code, dec_code
 
 if __name__ == "__main__":
     print("atempting internal module test")

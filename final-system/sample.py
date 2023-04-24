@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 def find_sync_symbol(data, start, lenght_of_pulse):
     #sync is one HIGH and 31 ZERO
@@ -17,6 +17,8 @@ def find_sync_symbol(data, start, lenght_of_pulse):
     if isItSync:
         end = position
         while data[end] == 0:
+            if (end >= len(data)):
+                return False
             end +=1
 
         lenght_of_pulse = (end-start)/(31+1)
@@ -48,31 +50,33 @@ def main(signal):
         
         if type(find_sync_symbol(signal, position, length_of_pulse)) == tuple:
             print("sync found")
-            plt.axvline(x = position, color="r", label="sync found")
+           
             length_of_pulse_synced = find_sync_symbol(signal, position, length_of_pulse)[1]
             print(length_of_pulse, length_of_pulse_synced)
             #length_of_pulse = (length_of_pulse_synced*31 + length_of_pulse)//32
             length_of_pulse = length_of_pulse_synced
             start = position+(32*length_of_pulse_synced)
-            plt.axvline(x = start, color="g", label="sync found")
+           
             
             start += 0.5*length_of_pulse
             sampled_data = ""
             for i in range(96):
                 index = int(start + (i*length_of_pulse_synced))
+                if index >= len(signal):
+                    return False
                 sampled_data += str(int(signal[index]))
-                plt.axvline(x = index, color="m", label="sync found")
+            
             sampled_data_list.append(sampled_data)
             break
 
         ones.append(position)
         n += int(length_of_pulse)
 
-    plt.plot(signal, color='b', label='signal')
+
     for xc in ones:
-        #plt.axvline(x=xc, label="one detected")
+      
         pass
-    plt.show()
+
     return sampled_data_list;
 
 if __name__ == "__main__":
