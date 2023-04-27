@@ -25,12 +25,18 @@ if __name__ == "__main__":
             led.color = (0, 0, 1)
             print("sampling signal")
             sampled_data = sampleMain(demodulated_data)
-
-            led.color = (1, 0, 1)
-            print("decoding data")
-            decoded_code = decodeMain(sampled_data[0])
-
-            led.blink(1, 1, 1, 1, (0, 1, 0), (0, 0, 0), 5)
-            print("output:", decoded_code)
+            
+            if sampled_data:
+                led.color = (1, 0, 1)
+                print("decoding data")
+                decoded_code = decodeMain(sampled_data[0])
+                
+                if decoded_code != False:
+                    led.blink(1, 1, 1, 1, (0, 1, 0), (0, 0, 0), 5)
+                    print("output:", decoded_code)
+                else:
+                    print("nie znaleziono kodu pilota")
+            else:
+                print("nie znaleziono kodu pilota")
 
 

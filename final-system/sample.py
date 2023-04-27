@@ -17,6 +17,8 @@ def find_sync_symbol(data, start, lenght_of_pulse):
     if isItSync:
         end = position
         while data[end] == 0:
+            if (end >= len(data)):
+                return False
             end +=1
 
         lenght_of_pulse = (end-start)/(31+1)
@@ -60,6 +62,8 @@ def main(signal):
             sampled_data = ""
             for i in range(96):
                 index = int(start + (i*length_of_pulse_synced))
+                if index >= len(signal):
+                    return False
                 sampled_data += str(int(signal[index]))
                 plt.axvline(x = index, color="m", label="sync found")
             
@@ -78,6 +82,8 @@ def main(signal):
 
 if __name__ == "__main__":
     sample_data = np.genfromtxt('../demodulated_signal.csv', delimiter=',')
+    print(sample_data)
+    
     sampled_signal = main(sample_data)
 
     print(sampled_signal)
