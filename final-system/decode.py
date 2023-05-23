@@ -2,7 +2,6 @@ verbose = False
 n = 4
 
 def decode(signal):
-    print(type(signal))
     signal_divided = [signal[i:i+n] for i in range(0, len(signal), n)]
 
     # słownik
@@ -25,7 +24,7 @@ def decode(signal):
     dec_code = int(received_code, 2)
 
     if verbose: print(dec_code)
-    
+
     return received_code, dec_code
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 import numpy as np
-import matplotlib.pyplot as plt
-
+from datetime import datetime
+from record import current_time
 def find_sync_symbol(data, start, lenght_of_pulse):
     #sync is one HIGH and 31 ZERO
     #one is already detected
@@ -49,14 +49,14 @@ def main(signal):
         length_of_pulse, position = find_first_impulse(signal, n)
         
         if type(find_sync_symbol(signal, position, length_of_pulse)) == tuple:
-            print("sync found")
-            plt.axvline(x = position, color="r", label="sync found")
+            print("timestamp:",str(current_time()), "sync found")
+           
             length_of_pulse_synced = find_sync_symbol(signal, position, length_of_pulse)[1]
-            print(length_of_pulse, length_of_pulse_synced)
+            #print(length_of_pulse, length_of_pulse_synced)
             #length_of_pulse = (length_of_pulse_synced*31 + length_of_pulse)//32
             length_of_pulse = length_of_pulse_synced
             start = position+(32*length_of_pulse_synced)
-            plt.axvline(x = start, color="g", label="sync found")
+           
             
             start += 0.5*length_of_pulse
             sampled_data = ""
@@ -65,7 +65,6 @@ def main(signal):
                 if index >= len(signal):
                     return False
                 sampled_data += str(int(signal[index]))
-                plt.axvline(x = index, color="m", label="sync found")
             
             sampled_data_list.append(sampled_data)
             break
@@ -73,17 +72,15 @@ def main(signal):
         ones.append(position)
         n += int(length_of_pulse)
 
-    plt.plot(signal, color='b', label='signal')
+
     for xc in ones:
-        #plt.axvline(x=xc, label="one detected")
+      
         pass
-    plt.show()
+
     return sampled_data_list;
 
 if __name__ == "__main__":
     sample_data = np.genfromtxt('../demodulated_signal.csv', delimiter=',')
-    print(sample_data)
-    
     sampled_signal = main(sample_data)
 
     print(sampled_signal)
