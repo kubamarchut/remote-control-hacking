@@ -1,13 +1,17 @@
 from sample import main as sampleMain
 from decode import decode as decodeMain
 from demodulate import main as demodulateMain
+
 #from send import sendMain
+
 from record import record
 from record import decimate
+from record import current_time
+
 from gpiozero import Button
 from gpiozero import RGBLED
+
 from time import sleep
-from record import current_time
 
 
 TRANSMIT_PIN = 37
