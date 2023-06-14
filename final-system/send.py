@@ -9,12 +9,12 @@ GPIO.setmode(GPIO.BOARD)
 transmit_pin = 37
 GPIO.setup(transmit_pin, GPIO.OUT)
 
-# Sekwencja bitow do wys�ania 1332675
+# Sekwencja bitow do wyslania 1332675
 sequence2_on = '0001010001010101110000110'  # gniazdko 2 wlaczenie
 sequence1_on = '0001010001010101001100110'  # gniazdko 1
 sequence1_off = '0001010001010101001111000'
 
-# Ustawienie parametr�w czasowych
+# Ustawienie parametrow czasowych
 zero_delay = 0.00016*0.66  # Dlugosc czasu trwania bitu 0
 one_delay = 0.0005*0.66   # Dlugosc czasu trwania bitu 1
 gap_zero = 0.00054*0.66  # Dlugosc czasu przerwy miedzy bitami
