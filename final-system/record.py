@@ -19,9 +19,10 @@ def initialize():
   sdr.gain = GAIN
 
 def current_time():
-  time = datetime.now()
-  current_time = time.strftime("%H:%M:%S")
-  return current_time
+    time = datetime.now()
+    current_time = time.strftime("%H:%M:%S")
+    return current_time
+
 
 def record():
     #print("start")
@@ -32,13 +33,10 @@ def record():
    # wavfile.write('../../remote-control-hacking/recorded_signals_urh/1_off/out2.wav', int(sdr.sample_rate), scaled.astype("int16"))
     # print("end")
     return samples
-    
-    
+
+
 def decimate(samples):
-    decimated = signal.decimate(samples, 20) #Dla wartości 20 jest jeszcze w miarę ładnie widoczny sygnał
+    # Dla wartości 20 jest jeszcze w miarę ładnie widoczny sygnał
+    decimated = signal.decimate(samples, 20)
     scaled = int16(decimated.real / max(abs(decimated)) * 32767)
-   
     return scaled
-
-
-

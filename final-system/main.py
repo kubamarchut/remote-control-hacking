@@ -7,7 +7,6 @@ from send import sendMain
 from record import record, initialize
 from record import decimate
 from time import sleep
-from record import current_time
 
 ispulsing = False
 sequence = '0001010001010101001111000'
