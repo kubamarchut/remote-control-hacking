@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.signal as sigtool
 
-
 data = np.genfromtxt(
     r"signal.csv", delimiter=',')
 

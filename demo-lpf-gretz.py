@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.signal import butter, lfilter, freqz, filtfilt
+from scipy.signal import butter, filtfilt
 import matplotlib.pyplot as plt
 import scipy.signal as sigtool
 
