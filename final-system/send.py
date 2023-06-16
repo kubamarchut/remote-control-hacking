@@ -2,9 +2,6 @@
 import time
 import RPi.GPIO as GPIO
 
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-
 # Ustawienie pinu do kontroli nadajnika FS1000A
 transmit_pin = 37
 GPIO.setup(transmit_pin, GPIO.OUT)
@@ -43,7 +40,7 @@ def sendMain(sequence):
             send_bit(bit)
         time.sleep(gap_signal)
         i += 1
-    GPIO.cleanup()
+    #GPIO.cleanup()
 
 
 if __name__ == "__main__":
@@ -54,4 +51,4 @@ if __name__ == "__main__":
             send_bit(bit)
         time.sleep(gap_signal)
         i += 1
-    GPIO.cleanup()
+    #GPIO.cleanup()
