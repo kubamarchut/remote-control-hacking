@@ -11,7 +11,7 @@ def decode(signal):
         "1110": "1"
     }
 
-    received_code = ""
+    received_code = []
 
     for sign in signal_divided:
         if not sign in decoding:
@@ -20,17 +20,17 @@ def decode(signal):
             else:
                 return False
         else:
-            received_code += decoding[sign]
+            received_code.append(decoding[sign])
 
     if verbose:
-        print(received_code)
+        print(''.join(received_code))
 
-    dec_code = int(received_code, 2)
+    dec_code = int(''.join(received_code), 2)
 
     if verbose:
         print(dec_code)
 
-    return received_code, dec_code
+    return ''.join(received_code), dec_code
 
 
 if __name__ == "__main__":
