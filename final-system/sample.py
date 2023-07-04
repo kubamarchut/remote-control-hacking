@@ -62,14 +62,14 @@ def main(signal):
             start = position+(32*length_of_pulse_synced)
 
             start += 0.5 * length_of_pulse
-            sampled_data = ""
+            sampled_data = []
             for i in range(96):
                 index = int(start + (i * length_of_pulse_synced))
                 if index >= len(signal):
                     return False
-                sampled_data += str(int(signal[index]))
+                sampled_data.append(int(signal[index]))
 
-            sampled_data_list.append(sampled_data)
+            sampled_data_list.append(''.join(map(str, sampled_data)))
             break
 
         ones.append(position)
@@ -85,5 +85,5 @@ def main(signal):
 if __name__ == "__main__":
     sample_data = np.genfromtxt('../demodulated_signal.csv', delimiter=',')
     sampled_signal = main(sample_data)
-
+    
     print(sampled_signal)
