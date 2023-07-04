@@ -6,11 +6,11 @@ To repozytorium przechowuje materiały zgromadzone przy pracy na projektem "Zhac
 ## 🖐️ Autorzy
 
 - 👨‍💻 Jakub Marchut [@kubamarchut](https://www.github.com/kubamarchut)
-- 👩‍🏫 Katarzyna Stec
-- 👷‍♂️ Jakub Kadłubowski
+- 👩‍🏫 Katarzyna Stec [@KasiaStec](https://www.github.com/KasiaStec)
+- 👷‍♂️ Jakub Kadłubowski [@kubakadlubowski](https://www.github.com/kadlub)
 - 👷‍♂️ Filip Jaworski
-- 👷‍♂️ Piotr Okrasa
-- 👷‍♀️ Małgorzata Plichta [@MalgorzataPlichta](https://github.com/MalgorzataPlichta)
+- 👷‍♂️ Piotr Okrasa [@piotrokrasa](https://www.github.com/piotrokrasa)
+- 👷‍♀️ Małgorzata Plichta [@mp0215](https://github.com/mp0215)
 
 
 ## 📃 Dokumentacja
